@@ -63,11 +63,12 @@ const handleStatusChange = (id, status) => {
       {/* Candidates Grid */}
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {filteredCandidates?.map((candidate) => (
-          <Link
+          <div
     key={candidate._id}
-    to={`/candidate/${candidate._id}`}
+    
     className="block bg-white p-4 rounded shadow hover:shadow-md transition hover:scale-[1.01]"
   >
+            <Link to={`/candidate/${candidate._id}`}>
             <h3 className="text-lg font-semibold">
               {candidate?.fullName || "N/A"}
             </h3>
@@ -77,7 +78,7 @@ const handleStatusChange = (id, status) => {
             <span className="text-blue-600">
               {candidate?.status || "Pending"}
             </span>
-
+          </Link>
             {/* Actions */}
             <div className="flex items-center justify-between mt-4">
               {/* Delete */}
@@ -101,7 +102,7 @@ const handleStatusChange = (id, status) => {
                 <option>Hired</option>
               </select>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
 
